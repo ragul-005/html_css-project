@@ -1,16 +1,5 @@
-/* ============================================
-   MEGAMART DEPARTMENT STORE
-   Beginner-friendly CSS (class selectors only)
-   No # (ID) selectors used anywhere
-   ============================================ */
 
-/* --- GOOGLE FONT --- */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
-
-
-/* --- RESET & BASE ---
-   This removes default spacing and sets box-sizing
-   so padding is included in width/height */
 * {
     margin: 0;
     padding: 0;
@@ -25,11 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-
-/* ===========================
-   ANIMATED BACKGROUND BLOBS
-   These float behind the content
-   =========================== */
 .bg-blobs {
     position: fixed;
     top: 0;
@@ -76,7 +60,6 @@ body {
     animation-delay: -16s;
 }
 
-/* Blob floating animation */
 @keyframes blobFloat {
     0%, 100% {
         transform: translate(0, 0) scale(1);
@@ -92,18 +75,11 @@ body {
     }
 }
 
-
-/* --- PAGE WRAPPER ---
-   Keeps all content above the background blobs */
 .page-wrapper {
     position: relative;
     z-index: 1;
 }
 
-
-/* ===========================
-   TOP BAR (announcement strip)
-   =========================== */
 .top-bar {
     background: linear-gradient(90deg, rgb(100, 60, 255), rgb(255, 80, 130));
     text-align: center;
@@ -115,7 +91,6 @@ body {
     animation: slideDown 0.6s ease;
 }
 
-/* Slide down animation for the top bar */
 @keyframes slideDown {
     from {
         transform: translateY(-100%);
@@ -132,9 +107,6 @@ body {
 }
 
 
-/* ===========================
-   NAVIGATION BAR
-   =========================== */
 .navbar {
     display: flex;
     align-items: center;
@@ -150,7 +122,6 @@ body {
     gap: 20px;
 }
 
-/* Brand / Logo */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -169,7 +140,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Animated dot next to the logo */
 .brand-dot {
     display: inline-block;
     width: 8px;
@@ -190,7 +160,6 @@ body {
     }
 }
 
-/* Navigation Links */
 .nav-links {
     display: flex;
     align-items: center;
@@ -209,7 +178,6 @@ body {
     cursor: pointer;
 }
 
-/* Underline effect on hover */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -238,7 +206,6 @@ body {
     width: 100%;
 }
 
-/* Dropdown Menu */
 .nav-dropdown {
     position: relative;
 }
@@ -283,7 +250,6 @@ body {
     padding-left: 30px;
 }
 
-/* Search Box */
 .search-box {
     display: flex;
     align-items: center;
@@ -322,7 +288,6 @@ body {
     font-size: 14px;
 }
 
-/* Cart Button */
 .cart-btn {
     display: flex;
     align-items: center;
@@ -357,7 +322,6 @@ body {
     font-weight: 700;
 }
 
-/* Mobile Menu Toggle - hidden on desktop */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -374,10 +338,6 @@ body {
     transition: all 0.3s ease;
 }
 
-
-/* ===========================
-   STORE MENU (Department Cards)
-   =========================== */
 .store-menu {
     padding: 50px 40px 20px;
     text-align: center;
@@ -441,7 +401,6 @@ body {
     font-weight: 300;
 }
 
-/* Staggered appearance for menu cards */
 .menu-card:nth-child(1) { animation: fadeInUp 0.5s ease 0.05s both; }
 .menu-card:nth-child(2) { animation: fadeInUp 0.5s ease 0.1s both; }
 .menu-card:nth-child(3) { animation: fadeInUp 0.5s ease 0.15s both; }
@@ -449,10 +408,6 @@ body {
 .menu-card:nth-child(5) { animation: fadeInUp 0.5s ease 0.25s both; }
 .menu-card:nth-child(6) { animation: fadeInUp 0.5s ease 0.3s both; }
 
-
-/* ===========================
-   HERO SECTION
-   =========================== */
 .hero {
     text-align: center;
     padding: 70px 40px 50px;
@@ -481,7 +436,6 @@ body {
     color: white;
 }
 
-/* Gradient text effect */
 .gradient-text {
     background: linear-gradient(135deg, rgb(100, 60, 255), rgb(255, 80, 130));
     -webkit-background-clip: text;
@@ -518,7 +472,6 @@ body {
     box-shadow: 0 12px 35px rgba(100, 60, 255, 0.4);
 }
 
-/* Fade-in-up animation used across many elements */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -530,10 +483,6 @@ body {
     }
 }
 
-
-/* ===========================
-   DEPARTMENT TABS
-   =========================== */
 .department-tabs {
     display: flex;
     justify-content: center;
@@ -571,10 +520,6 @@ body {
     box-shadow: 0 4px 20px rgba(100, 60, 255, 0.4);
 }
 
-
-/* ===========================
-   PRODUCT GRID
-   =========================== */
 .products-section {
     padding: 0 40px 80px;
 }
@@ -587,10 +532,6 @@ body {
     margin: 0 auto;
 }
 
-
-/* ===========================
-   PRODUCT CARD
-   =========================== */
 .product-card {
     background: rgba(22, 22, 42, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -611,7 +552,6 @@ body {
         0 0 30px rgba(100, 60, 255, 0.08);
 }
 
-/* Card appearance animation */
 @keyframes cardAppear {
     to {
         opacity: 1;
@@ -619,7 +559,6 @@ body {
     }
 }
 
-/* Staggered animation delays for cards */
 .product-card:nth-child(1)  { animation-delay: 0.05s; }
 .product-card:nth-child(2)  { animation-delay: 0.1s; }
 .product-card:nth-child(3)  { animation-delay: 0.1s; }
@@ -645,8 +584,6 @@ body {
 .product-card:nth-child(23) { animation-delay: 0.8s; }
 .product-card:nth-child(24) { animation-delay: 0.85s; }
 
-
-/* --- Card Image Area --- */
 .card-image-area {
     position: relative;
     width: 100%;
@@ -666,7 +603,6 @@ body {
     transform: scale(1.08);
 }
 
-/* Badge on product image */
 .card-badge {
     position: absolute;
     top: 14px;
@@ -703,7 +639,6 @@ body {
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-/* Wishlist heart button */
 .card-wishlist {
     position: absolute;
     top: 14px;
@@ -733,7 +668,6 @@ body {
     border-color: rgba(255, 70, 70, 0.7);
 }
 
-/* Quick View overlay on hover */
 .card-overlay {
     position: absolute;
     bottom: 0;
@@ -779,7 +713,6 @@ body {
     background: rgb(80, 40, 220);
 }
 
-/* --- Card Body --- */
 .card-body {
     padding: 20px;
 }
@@ -801,7 +734,6 @@ body {
     line-height: 1.3;
 }
 
-/* Star rating */
 .card-rating {
     display: flex;
     align-items: center;
@@ -828,7 +760,6 @@ body {
     color: rgba(230, 230, 240, 0.4);
 }
 
-/* Price row */
 .card-price-row {
     display: flex;
     align-items: center;
@@ -878,9 +809,6 @@ body {
 }
 
 
-/* ===========================
-   QUICK VIEW MODAL
-   =========================== */
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -1041,10 +969,6 @@ body {
     color: rgb(255, 130, 130);
 }
 
-
-/* ===========================
-   CART SIDE PANEL
-   =========================== */
 .cart-panel {
     position: fixed;
     top: 0;
@@ -1179,7 +1103,6 @@ body {
     color: white;
 }
 
-/* Overlay behind the cart panel */
 .cart-overlay {
     position: fixed;
     top: 0;
@@ -1198,10 +1121,6 @@ body {
     pointer-events: all;
 }
 
-
-/* ===========================
-   TOAST NOTIFICATION
-   =========================== */
 .toast {
     position: fixed;
     bottom: 30px;
@@ -1235,10 +1154,6 @@ body {
     font-weight: 400;
 }
 
-
-/* ===========================
-   BACK TO TOP BUTTON
-   =========================== */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -1271,10 +1186,6 @@ body {
     transform: translateY(-3px);
 }
 
-
-/* ===========================
-   FOOTER
-   =========================== */
 .footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 60px 40px 30px;
@@ -1332,7 +1243,6 @@ body {
     animation: heartBeat 1.5s ease-in-out infinite;
 }
 
-/* Heart beating animation */
 @keyframes heartBeat {
     0%, 100% {
         transform: scale(1);
@@ -1345,12 +1255,6 @@ body {
     }
 }
 
-
-/* ===========================
-   RESPONSIVE DESIGN
-   =========================== */
-
-/* Tablet size */
 @media (max-width: 1024px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1364,8 +1268,6 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
-/* Mobile size */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 32px;
@@ -1465,7 +1367,6 @@ body {
     }
 }
 
-/* Small phone size */
 @media (max-width: 480px) {
     .product-grid {
         grid-template-columns: 1fr;
@@ -1498,10 +1399,6 @@ body {
     }
 }
 
-
-/* ===========================
-   SCROLLBAR STYLING
-   =========================== */
 ::-webkit-scrollbar {
     width: 8px;
 }
