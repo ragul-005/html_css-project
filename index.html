@@ -9,37 +9,28 @@
 </head>
 <body>
 
-    <!-- Animated Background Blobs -->
     <div class="bg-blobs">
         <div class="blob blob-one"></div>
         <div class="blob blob-two"></div>
         <div class="blob blob-three"></div>
     </div>
 
-    <!-- Page Wrapper -->
     <div class="page-wrapper">
 
-        <!-- ====== TOP BAR ====== -->
         <div class="top-bar">
             <span class="top-bar-text">🚚 Free Delivery on orders above ₹999 | 🎉 Mega Summer Sale — Up to 60% Off!</span>
         </div>
-
-        <!-- ====== NAVIGATION BAR ====== -->
         <nav class="navbar">
             <div class="navbar-brand">
                 <span class="brand-icon">🏬</span>
                 <span class="brand-name">MegaMart</span>
                 <span class="brand-dot"></span>
             </div>
-
-            <!-- Mobile Menu Toggle -->
             <div class="menu-toggle" onclick="toggleMenu()">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-
-            <!-- Navigation Links -->
             <ul class="nav-links">
                 <li><a class="nav-link active" href="javascript:void(0)">Home</a></li>
                 <li class="nav-dropdown">
@@ -59,22 +50,15 @@
                 <li><a class="nav-link" href="javascript:void(0)">About</a></li>
                 <li><a class="nav-link" href="javascript:void(0)">Contact</a></li>
             </ul>
-
-            <!-- Search Bar -->
             <div class="search-box">
                 <input class="search-input" type="text" placeholder="Search products..." onkeyup="searchProducts(this.value)">
                 <span class="search-icon">🔍</span>
             </div>
-
-            <!-- Cart Button -->
             <button class="cart-btn" onclick="toggleCartPanel()">
                 🛒 Cart <span class="cart-count">0</span>
             </button>
         </nav>
-
-
-        <!-- ====== STORE MENU BANNER ====== -->
-        <section class="store-menu">
+      <section class="store-menu">
             <h2 class="menu-heading">🏬 Store Menu</h2>
             <div class="menu-grid">
                 <div class="menu-card" onclick="switchTab(document.querySelectorAll('.tab-btn')[1], 'fashion')">
@@ -109,9 +93,6 @@
                 </div>
             </div>
         </section>
-
-
-        <!-- ====== HERO BANNER ====== -->
         <section class="hero">
             <div class="hero-badge">🌟 Mega Summer Sale 2026</div>
             <h1 class="hero-title">
@@ -124,9 +105,6 @@
             </p>
             <button class="hero-btn" onclick="scrollToProducts()">Explore Products ↓</button>
         </section>
-
-
-        <!-- ====== DEPARTMENT TABS ====== -->
         <div class="department-tabs">
             <button class="tab-btn active" onclick="switchTab(this, 'all')">All Products</button>
             <button class="tab-btn" onclick="switchTab(this, 'fashion')">👗 Fashion</button>
@@ -136,17 +114,10 @@
             <button class="tab-btn" onclick="switchTab(this, 'sports')">⚽ Sports</button>
             <button class="tab-btn" onclick="switchTab(this, 'beauty')">💄 Beauty</button>
         </div>
-
-
-        <!-- ====== PRODUCT GRID ====== -->
         <section class="products-section">
             <div class="product-grid">
-                <!-- Products are inserted here by JavaScript -->
             </div>
         </section>
-
-
-        <!-- ====== QUICK VIEW MODAL ====== -->
         <div class="modal-backdrop" onclick="handleBackdropClick(event)">
             <div class="modal-box">
                 <button class="modal-close-x" onclick="closeModal()">✕</button>
@@ -166,9 +137,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- ====== CART SIDE PANEL ====== -->
         <div class="cart-panel">
             <div class="cart-panel-header">
                 <h3 class="cart-panel-title">🛒 Your Cart</h3>
@@ -183,20 +151,12 @@
             </div>
         </div>
         <div class="cart-overlay" onclick="toggleCartPanel()"></div>
-
-
-        <!-- ====== TOAST NOTIFICATION ====== -->
         <div class="toast">
             <span class="toast-icon"></span>
             <span class="toast-message"></span>
         </div>
 
-
-        <!-- ====== BACK TO TOP ====== -->
         <button class="back-to-top" onclick="scrollToTop()">↑</button>
-
-
-        <!-- ====== FOOTER ====== -->
         <footer class="footer">
             <div class="footer-grid">
                 <div class="footer-col">
@@ -228,8 +188,6 @@
         </footer>
 
     </div>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
