@@ -1,17 +1,5 @@
-/* ============================================
-   MEGAMART DEPARTMENT STORE - JAVASCRIPT
-   Beginner-friendly (basic commands only)
-   No advanced features used
-   ============================================ */
-
-
-// ---- PRODUCT DATA ----
-// 24 unique products across 6 departments
-// All prices are in Indian Rupees (₹)
-
 var products = [
 
-    // ======= FASHION (4 products) =======
     {
         name: "Banarasi Silk Saree",
         category: "Women's Fashion",
@@ -61,7 +49,6 @@ var products = [
         description: "Genuine leather Chelsea boots with elastic side panels and a comfortable cushioned sole. Built for style and durability."
     },
 
-    // ======= ELECTRONICS (4 products) =======
     {
         name: "Wireless Noise-Cancelling Earbuds",
         category: "Audio",
@@ -111,7 +98,6 @@ var products = [
         description: "Slim 20000mAh power bank with fast charging support, dual USB ports, and LED charge indicator."
     },
 
-    // ======= HOME & LIVING (4 products) =======
     {
         name: "Handwoven Jute Area Rug",
         category: "Home Decor",
@@ -160,8 +146,6 @@ var products = [
         reviews: 455,
         description: "Soft 300-thread-count cotton bedsheet set with two pillow covers. Breathable fabric for a good night's sleep."
     },
-
-    // ======= GROCERY (4 products) =======
     {
         name: "Organic Honey (500g)",
         category: "Natural Foods",
@@ -210,8 +194,6 @@ var products = [
         reviews: 234,
         description: "Premium mix of almonds, cashews, walnuts, pistachios, and raisins. A healthy and tasty gift box."
     },
-
-    // ======= SPORTS (4 products) =======
     {
         name: "Yoga Mat with Carry Strap",
         category: "Fitness",
@@ -261,7 +243,6 @@ var products = [
         description: "Double-wall insulated stainless steel bottle that keeps drinks cold for 24 hours or hot for 12 hours."
     },
 
-    // ======= BEAUTY (4 products) =======
     {
         name: "Rose Gold Makeup Brush Set",
         category: "Makeup Tools",
@@ -312,31 +293,20 @@ var products = [
     }
 ];
 
-
-// ---- STATE VARIABLES ----
-// These keep track of the cart and current filters
-
 var cartCount = 0;
 var cartItems = [];
 var cartTotal = 0;
 var currentDepartment = "all";
 var currentModalIndex = -1;
 
-
-// ---- HELPER FUNCTIONS ----
-
-// Create star icons based on rating number
 function createStars(rating) {
     var starsHTML = "";
     var fullStars = Math.floor(rating);
     var i;
-
-    // Add filled stars
     for (i = 0; i < fullStars; i = i + 1) {
         starsHTML = starsHTML + '<span class="star-filled">★</span>';
     }
 
-    // Add empty stars to make up 5 total
     for (i = fullStars; i < 5; i = i + 1) {
         starsHTML = starsHTML + '<span class="star-empty">★</span>';
     }
@@ -344,16 +314,11 @@ function createStars(rating) {
     return starsHTML;
 }
 
-
-// Format price in Indian Rupees
 function formatPrice(amount) {
     return "₹" + amount.toLocaleString("en-IN");
 }
 
-
-// Create the HTML for one product card
 function createProductCard(product, index) {
-    // Figure out the badge class and text
     var badgeClass = "";
     var badgeText = "";
 
@@ -371,13 +336,11 @@ function createProductCard(product, index) {
         badgeText = "Bestseller";
     }
 
-    // Build the price display
     var priceHTML = formatPrice(product.price);
     if (product.originalPrice !== null) {
         priceHTML = priceHTML + '<span class="original-price">' + formatPrice(product.originalPrice) + '</span>';
     }
 
-    // Build the full card HTML string
     var card = "";
     card = card + '<div class="product-card" data-index="' + index + '">';
     card = card + '  <div class="card-image-area">';
@@ -405,10 +368,6 @@ function createProductCard(product, index) {
     return card;
 }
 
-
-// ---- RENDER / DISPLAY FUNCTIONS ----
-
-// Show products based on the selected department
 function showProducts(department) {
     var grid = document.querySelector(".product-grid");
     var allHTML = "";
@@ -423,17 +382,12 @@ function showProducts(department) {
     grid.innerHTML = allHTML;
 }
 
-
-// Update the cart panel display
 function updateCartDisplay() {
     var body = document.querySelector(".cart-panel-body");
     var totalSpan = document.querySelector(".cart-total-amount");
     var countSpan = document.querySelector(".cart-count");
-
-    // Update cart count badge
     countSpan.textContent = cartItems.length;
 
-    // Calculate total
     cartTotal = 0;
     var i;
     for (i = 0; i < cartItems.length; i = i + 1) {
@@ -441,13 +395,11 @@ function updateCartDisplay() {
     }
     totalSpan.textContent = formatPrice(cartTotal);
 
-    // If cart is empty
     if (cartItems.length === 0) {
         body.innerHTML = '<p class="cart-empty-msg">Your cart is empty. Start shopping!</p>';
         return;
     }
 
-    // Build cart items HTML
     var html = "";
     for (i = 0; i < cartItems.length; i = i + 1) {
         html = html + '<div class="cart-item">';
@@ -463,9 +415,6 @@ function updateCartDisplay() {
 }
 
 
-// ---- EVENT HANDLERS ----
-
-// Switch department tab
 function switchTab(button, department) {
     // Remove active from all tabs
     var allTabs = document.querySelectorAll(".tab-btn");
@@ -474,26 +423,20 @@ function switchTab(button, department) {
         allTabs[i].classList.remove("active");
     }
 
-    // Add active to clicked tab
     button.classList.add("active");
 
-    // Save and show
     currentDepartment = department;
     showProducts(department);
 
-    // Close dropdown if open
     var dropdown = document.querySelector(".dropdown-menu");
     if (dropdown) {
         dropdown.classList.remove("show");
     }
 
-    // Scroll to products
     var productsArea = document.querySelector(".products-section");
     productsArea.scrollIntoView({ behavior: "smooth" });
 }
 
-
-// Toggle wishlist heart
 function toggleWishlist(event, heartButton) {
     event.stopPropagation();
 
@@ -508,12 +451,8 @@ function toggleWishlist(event, heartButton) {
     }
 }
 
-
-// Add item to cart
 function addToCart(event, button, index) {
     event.stopPropagation();
-
-    // Add to cart array
     var product = products[index];
     cartItems.push({
         name: product.name,
@@ -521,23 +460,18 @@ function addToCart(event, button, index) {
         emoji: product.emoji
     });
 
-    // Change button appearance
     button.classList.add("added");
     button.textContent = "✓";
 
-    // Update display
     updateCartDisplay();
     showToast("🛒", product.name + " added to cart!");
 
-    // Reset button after 2 seconds
     setTimeout(function () {
         button.classList.remove("added");
         button.textContent = "+";
     }, 2000);
 }
 
-
-// Remove item from cart
 function removeFromCart(index) {
     var removedName = cartItems[index].name;
     cartItems.splice(index, 1);
@@ -545,16 +479,12 @@ function removeFromCart(index) {
     showToast("🗑️", removedName + " removed");
 }
 
-
-// Open quick view modal
 function openQuickView(event, index) {
     event.stopPropagation();
 
     currentModalIndex = index;
     var product = products[index];
     var backdrop = document.querySelector(".modal-backdrop");
-
-    // Fill modal content
     document.querySelector(".modal-image").style.display = "none";
 
     var imageArea = document.querySelector(".modal-image-area");
@@ -569,25 +499,18 @@ function openQuickView(event, index) {
     document.querySelector(".modal-title").textContent = product.name;
     document.querySelector(".modal-description").textContent = product.description;
     document.querySelector(".modal-price").textContent = formatPrice(product.price);
-
-    // Rating row
     var ratingRow = document.querySelector(".modal-rating-row");
     ratingRow.innerHTML = '<div class="stars">' + createStars(product.rating) + '</div>' +
         '<span class="rating-count">' + product.rating + ' (' + product.reviews + ' reviews)</span>';
 
-    // Show modal
     backdrop.classList.add("show");
 }
 
-
-// Close modal
 function closeModal() {
     var backdrop = document.querySelector(".modal-backdrop");
     backdrop.classList.remove("show");
 }
 
-
-// Add to cart from modal
 function modalAddToCart() {
     if (currentModalIndex >= 0) {
         var product = products[currentModalIndex];
@@ -602,22 +525,16 @@ function modalAddToCart() {
     }
 }
 
-
-// Add to wishlist from modal
 function modalAddWishlist() {
     showToast("❤️", "Added to wishlist!");
 }
 
-
-// Close modal when clicking backdrop
 function handleBackdropClick(event) {
     if (event.target === document.querySelector(".modal-backdrop")) {
         closeModal();
     }
 }
 
-
-// Toggle cart side panel
 function toggleCartPanel() {
     var panel = document.querySelector(".cart-panel");
     var overlay = document.querySelector(".cart-overlay");
@@ -632,7 +549,6 @@ function toggleCartPanel() {
 }
 
 
-// Show toast notification
 function showToast(icon, message) {
     var toast = document.querySelector(".toast");
     var toastIcon = document.querySelector(".toast-icon");
@@ -648,22 +564,16 @@ function showToast(icon, message) {
     }, 2500);
 }
 
-
-// Toggle mobile menu
 function toggleMenu() {
     var links = document.querySelector(".nav-links");
     links.classList.toggle("open");
 }
 
-
-// Toggle dropdown menu
 function toggleDropdown(link) {
     var dropdown = link.parentElement.querySelector(".dropdown-menu");
     dropdown.classList.toggle("show");
 }
 
-
-// Search products by name
 function searchProducts(text) {
     var grid = document.querySelector(".product-grid");
     var searchText = text.toLowerCase();
@@ -691,8 +601,6 @@ function searchProducts(text) {
     }
 }
 
-
-// Scroll to products section
 function scrollToProducts() {
     var productsArea = document.querySelector(".products-section");
     productsArea.scrollIntoView({ behavior: "smooth" });
@@ -704,8 +612,6 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-
-// Show/hide back-to-top button based on scroll
 window.onscroll = function () {
     var btn = document.querySelector(".back-to-top");
     if (window.scrollY > 400) {
@@ -715,8 +621,6 @@ window.onscroll = function () {
     }
 };
 
-
-// Close dropdown when clicking outside
 document.addEventListener("click", function (event) {
     var dropdown = document.querySelector(".dropdown-menu");
     var navDropdown = document.querySelector(".nav-dropdown");
@@ -728,9 +632,6 @@ document.addEventListener("click", function (event) {
     }
 });
 
-
-// ---- INITIALIZE ----
-// When the page loads, show all products
 window.onload = function () {
     showProducts("all");
 };
